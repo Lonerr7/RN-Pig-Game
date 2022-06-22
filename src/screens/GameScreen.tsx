@@ -4,6 +4,7 @@ import CustomButton from '../components/common/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationRoutes, RootStackParamList } from '../types/types';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { Colors } from '../constants/styles';
 
 type settingsScreenProp = StackNavigationProp<
   RootStackParamList,
@@ -31,6 +32,7 @@ const GameScreen: React.FC = () => {
 const styles = StyleSheet.create({
   game: {
     flex: 1,
+    backgroundColor: Colors.color1,
   },
   gameHeader: {
     paddingVertical: 30,

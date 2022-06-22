@@ -5,7 +5,7 @@ const App: React.FC = () => {
   return (
     <>
       <Navigation />
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
     </>
   );
 };

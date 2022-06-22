@@ -2,13 +2,22 @@ import { Pressable, View, StyleSheet } from 'react-native';
 
 type CustomButtonProps = {
   children: React.ReactNode;
-  onPress: () => void;
+  onPress?: () => void;
+  customStyles?: any;
 };
 
-const CustomButton: React.FC<CustomButtonProps> = ({ children, onPress }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({
+  children,
+  onPress,
+  customStyles,
+}) => {
   return (
     <Pressable
-      style={({ pressed }) => [styles.customButton, pressed && styles.pressed]}
+      style={({ pressed }) => [
+        styles.customButton,
+        customStyles,
+        pressed && styles.pressed,
+      ]}
       onPress={onPress}
     >
       <View>{children}</View>

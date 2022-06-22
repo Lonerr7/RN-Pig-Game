@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
+import { Colors } from '../constants/styles';
 
 const SettingsScreen: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const SettingsScreen: React.FC = () => {
 const styles = StyleSheet.create({
   settings: {
     flex: 1,
+    backgroundColor: Colors.color2,
   },
 });
 
