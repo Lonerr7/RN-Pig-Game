@@ -11,7 +11,7 @@ type SettingsScreenProp = StackNavigationProp<
   NavigationRoutes.GAME
 >;
 
-const GameHeader = () => {
+const GameHeader: React.FC = () => {
   const navigation = useNavigation<SettingsScreenProp>();
 
   const settingsPressHandler = () => {
@@ -30,9 +30,9 @@ const GameHeader = () => {
 const styles = StyleSheet.create({
   gameHeader: {
     paddingVertical: 30,
-    paddingHorizontal: 10,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+    position: 'absolute',
+    top: 0,
+    right: 10,
   },
 });
 

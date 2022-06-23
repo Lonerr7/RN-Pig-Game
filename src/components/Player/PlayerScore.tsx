@@ -1,8 +1,8 @@
 import { View, StyleSheet, Text } from 'react-native';
 
 type PlayerScoreProps = {
-  currentScore?: number;
-  gameScore?: number;
+  currentScore: number;
+  gameScore: number;
 };
 
 const PlayerScore: React.FC<PlayerScoreProps> = ({
@@ -11,20 +11,35 @@ const PlayerScore: React.FC<PlayerScoreProps> = ({
 }) => {
   return (
     <View style={styles.playerScore}>
-      <View style={styles.scoreBox}>
-        <Text style={styles.score}>Current Score: 1{currentScore}</Text>
+      <View>
+        <Text style={styles.score}>
+          Current Score: <Text style={styles.bold}>{currentScore}</Text>
+        </Text>
       </View>
-      <View style={styles.scoreBox}>
-        <Text style={styles.score}>Game Score: 1{gameScore}</Text>
+      <View>
+        <Text style={styles.score}>
+          Game Score: <Text style={styles.bold}>{gameScore}</Text>
+        </Text>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  playerScore: {},
-  scoreBox: {},
-  score: {},
+  playerScore: {
+    borderWidth: 2,
+    borderColor: 'black',
+    borderRadius: 10,
+    width: '100%',
+    padding: 30,
+    alignItems: 'center',
+  },
+  score: {
+    fontSize: 18,
+  },
+  bold: {
+    fontWeight: '700',
+  },
 });
 
 export default PlayerScore;
