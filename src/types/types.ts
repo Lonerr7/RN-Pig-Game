@@ -18,4 +18,7 @@ type Player = {
 export type PlayersState = {
   players: Player[];
   diceNumber: number;
+  activePlayer: number;
+  maxGameScore: number;
+  isGameOver: boolean;
 };

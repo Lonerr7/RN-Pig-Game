@@ -13,7 +13,11 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 }) => {
   return (
     <Pressable
-      style={({ pressed }) => [customStyles, pressed && styles.pressed]}
+      style={({ pressed }) => [
+        styles.btn,
+        customStyles,
+        pressed && styles.pressed,
+      ]}
       onPress={onPress}
     >
       <View>{children}</View>
@@ -22,6 +26,10 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 };
 
 const styles = StyleSheet.create({
+  btn: {
+    position: 'relative',
+    zIndex: 50,
+  },
   pressed: {
     opacity: 0.5,
   },

@@ -1,19 +1,47 @@
 import { View, StyleSheet, Text } from 'react-native';
+import { useAppDispatch } from '../../hooks/hooks';
+import { holdScore, rollDice, startNewGame } from '../../redux/gameSlice';
 import CustomButton from '../common/CustomButton';
 import DiceImage from '../common/DiceImage';
 
 const Controls: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  const rollDiceHandler = () => {
+    dispatch(rollDice());
+  };
+
+  const newGameHandler = () => {
+    dispatch(startNewGame());
+  };
+
+  const holdScoreHandler = () => {
+    dispatch(holdScore());
+  };
+
   return (
     <View style={styles.controlsContainer}>
       <View style={styles.row}>
-        <CustomButton customStyles={styles.buttonStyle}>
+        <CustomButton
+          customStyles={styles.buttonStyle}
+          onPress={rollDiceHandler}
+        >
           <Text>🎲 Roll Dice</Text>
         </CustomButton>
         <DiceImage customStyles={styles.imageStyle} />
-        <CustomButton customStyles={styles.buttonStyle}>
+        <CustomButton
+          customStyles={styles.buttonStyle}
+          onPress={holdScoreHandler}
+        >
           <Text>📥 Hold</Text>
         </CustomButton>
       </View>
+      <CustomButton
+        customStyles={[styles.buttonStyle, styles.newGameBtnStyle]}
+        onPress={newGameHandler}
+      >
+        <Text>🔃 New Game</Text>
+      </CustomButton>
     </View>
   );
 };
@@ -22,8 +50,8 @@ const styles = StyleSheet.create({
   controlsContainer: {
     position: 'absolute',
     top: '54%',
-    left: '25%',
-    width: '101%',
+    left: '24%',
+    width: '80%',
     transform: [{ translateX: -50 }, { translateY: -50 }],
   },
   row: {
@@ -46,6 +74,11 @@ const styles = StyleSheet.create({
     bottom: -13,
     width: 60,
     height: 60,
+  },
+  newGameBtnStyle: {
+    width: 150,
+    top: 30,
+    left: '25%',
   },
 });
 
