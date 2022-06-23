@@ -9,7 +9,7 @@ const initialState: PlayersState = {
   ],
   diceNumber: 0,
   activePlayer: 0,
-  maxGameScore: 40,
+  maxGameScore: 10,
   isGameOver: false,
 };
 

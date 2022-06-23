@@ -4,16 +4,23 @@ import GameHeader from '../components/GameHeader/GameHeader';
 import Players from '../components/Players/Players';
 import { Colors } from '../constants/styles';
 import { useAppSelector } from '../hooks/hooks';
+import GameOverScreen from './GameOverScreen';
 
 const GameScreen: React.FC = () => {
   const isGameOver = useAppSelector((state) => state.game.isGameOver);
 
   return (
-    <View style={styles.game}>
-      <GameHeader />
-      <Players />
-      <Controls />
-    </View>
+    <>
+      {isGameOver ? (
+        <GameOverScreen />
+      ) : (
+        <View style={styles.game}>
+          <GameHeader />
+          <Players />
+          <Controls />
+        </View>
+      )}
+    </>
   );
 };
 
