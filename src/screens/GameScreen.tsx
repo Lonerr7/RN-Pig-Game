@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import GameHeader from '../components/GameHeader/GameHeader';
 import { Colors } from '../constants/styles';
 
