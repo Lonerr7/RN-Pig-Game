@@ -17,4 +17,5 @@ type Player = {
 
 export type PlayersState = {
   players: Player[];
+  diceNumber: number;
 };

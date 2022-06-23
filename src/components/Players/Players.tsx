@@ -3,7 +3,7 @@ import { useAppSelector } from '../../hooks/hooks';
 import Player from '../Player/Player';
 
 const Players: React.FC = () => {
-  const [player1, player2] = useAppSelector((state) => state.players.players);
+  const [player1, player2] = useAppSelector((state) => state.game.players);
 
   return (
     <View style={styles.playersContainer}>

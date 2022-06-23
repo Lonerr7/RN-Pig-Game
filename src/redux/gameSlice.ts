@@ -6,13 +6,14 @@ const initialState: PlayersState = {
     { id: 1, currentScore: 0, gameScore: 0, name: 'Player 1' },
     { id: 2, currentScore: 0, gameScore: 0, name: 'Player 2' },
   ],
+  diceNumber: 1,
 };
 
-const playersSlice = createSlice({
-  name: 'players',
+const gameSlice = createSlice({
+  name: 'game',
   initialState,
   reducers: {},
 });
 
-export const {} = playersSlice.actions;
-export default playersSlice.reducer;
+export const {} = gameSlice.actions;
+export default gameSlice.reducer;

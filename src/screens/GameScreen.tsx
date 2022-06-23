@@ -1,4 +1,5 @@
 import { View, StyleSheet } from 'react-native';
+import Controls from '../components/Controls/Controls';
 import GameHeader from '../components/GameHeader/GameHeader';
 import Players from '../components/Players/Players';
 import { Colors } from '../constants/styles';
@@ -8,6 +9,7 @@ const GameScreen: React.FC = () => {
     <View style={styles.game}>
       <GameHeader />
       <Players />
+      <Controls />
     </View>
   );
 };
