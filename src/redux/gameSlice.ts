@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { changeActivePlayer } from '../helpers/helpers';
 import { PlayersState } from '../types/types';
 
@@ -44,8 +44,12 @@ const gameSlice = createSlice({
 
       changeActivePlayer(state);
     },
+    changeMaxScore(state, action: PayloadAction<string>) {
+      state.maxGameScore = parseFloat(action.payload);
+    },
   },
 });
 
-export const { rollDice, startNewGame, holdScore } = gameSlice.actions;
+export const { rollDice, startNewGame, holdScore, changeMaxScore } =
+  gameSlice.actions;
 export default gameSlice.reducer;

@@ -5,7 +5,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { NavigationRoutes, RootStackParamList } from '../../types/types';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import ExitAppBtn from '../common/ExitAppBtn';
 
 type SettingsScreenProp = StackNavigationProp<
   RootStackParamList,
@@ -21,7 +20,6 @@ const GameHeader: React.FC = () => {
 
   return (
     <View style={styles.gameHeader}>
-      <ExitAppBtn />
       <CustomButton onPress={settingsPressHandler}>
         <Ionicons name="settings" size={28} />
       </CustomButton>
@@ -32,7 +30,7 @@ const GameHeader: React.FC = () => {
 const styles = StyleSheet.create({
   gameHeader: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     paddingVertical: 30,
     position: 'absolute',
     width: '100%',
@@ -40,7 +38,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     zIndex: 50,
   },
-  btnStyle: {},
 });
 
 export default GameHeader;

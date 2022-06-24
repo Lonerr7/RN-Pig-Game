@@ -36,12 +36,9 @@ const Navigation: React.FC = () => {
                 customStyles={{
                   marginLeft: 15,
                 }}
+                onPress={() => navigation.goBack()}
               >
-                <Ionicons
-                  name="arrow-back"
-                  size={28}
-                  onPress={() => navigation.goBack()}
-                />
+                <Ionicons name="arrow-back" size={28} />
               </CustomButton>
             ),
           })}
