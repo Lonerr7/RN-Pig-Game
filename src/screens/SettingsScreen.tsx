@@ -1,11 +1,14 @@
-import { View, Text, StyleSheet, Pressable, Keyboard } from 'react-native';
-import GameSettings from '../components/GameSettings/GameSettings';
+import { StyleSheet, Pressable, Keyboard } from 'react-native';
+import SettingsBlock from '../components/common/SettingsBlock';
+import MaxScoreSettings from '../components/GameSettings/MaxScoreSettings';
 import { Colors } from '../constants/styles';
 
 const SettingsScreen: React.FC = () => {
   return (
     <Pressable style={styles.settings} onPress={() => Keyboard.dismiss()}>
-      <GameSettings />
+      <SettingsBlock title="Game Settings">
+        <MaxScoreSettings />
+      </SettingsBlock>
     </Pressable>
   );
 };
