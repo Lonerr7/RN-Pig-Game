@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, TextInput, Pressable } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import React, { useEffect, useState } from 'react';
+import CustomButton from './CustomButton';
 
 type SettingsFieldProps = {
   fieldTitle: string;
@@ -44,9 +45,9 @@ const SettingsField: React.FC<SettingsFieldProps> = ({
           keyboardType="numeric"
           onChangeText={changeInputValueHandler}
         />
-        <Pressable onPress={() => onPress(value)}>
+        <CustomButton onPress={() => onPress(value)}>
           <AntDesign name="enter" size={28} />
-        </Pressable>
+        </CustomButton>
       </View>
     </View>
   );
