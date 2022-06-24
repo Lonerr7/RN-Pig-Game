@@ -3,11 +3,16 @@ import { StyleSheet, Text, View } from 'react-native';
 type SettignsBlockProps = {
   title: string;
   children: React.ReactElement;
+  customStyles?: any;
 };
 
-const SettingsBlock: React.FC<SettignsBlockProps> = ({ title, children }) => {
+const SettingsBlock: React.FC<SettignsBlockProps> = ({
+  title,
+  children,
+  customStyles,
+}) => {
   return (
-    <View style={styles.settingsBlockContainer}>
+    <View style={[styles.settingsBlockContainer, customStyles]}>
       <View style={styles.settingsBlockTitleBox}>
         <Text style={styles.settingsBlockTitle}>{title}</Text>
       </View>

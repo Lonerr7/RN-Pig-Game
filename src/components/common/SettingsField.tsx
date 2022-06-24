@@ -6,10 +6,20 @@ import CustomButton from './CustomButton';
 type SettingsFieldProps = {
   fieldTitle: string;
   fieldValue: string;
-  wrap?: boolean;
+  flexWrap?: 'wrap' | 'nowrap';
   marginBottom?: number;
-  inputBoxWidth: number;
-  onPress: (newValue: string) => void;
+  textMarginBottom?: number;
+  inputBoxWidth: string | number;
+  onPress?: (newValue: string) => void;
+  inputWidth?: string | number;
+  inputType?: string;
+  justifyInputBoxContent?:
+    | 'space-between'
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'space-around'
+    | 'space-evenly';
 };
 
 const SettingsField: React.FC<SettingsFieldProps> = ({
@@ -17,15 +27,22 @@ const SettingsField: React.FC<SettingsFieldProps> = ({
   fieldValue,
   inputBoxWidth,
   onPress,
+  inputWidth,
+  marginBottom,
+  flexWrap,
+  textMarginBottom,
+  inputType,
+  justifyInputBoxContent,
 }) => {
   const [value, setValue] = useState(fieldValue);
+  const keyboardType = inputType === 'numeric' ? 'numeric' : 'default';
 
   useEffect(() => {
     setValue(fieldValue);
   }, [fieldValue]);
 
   const changeInputValueHandler = (text: string) => {
-    if (text.length === 0) {
+    if (text.length === 0 && keyboardType === 'numeric') {
       setValue('0');
     } else {
       setValue(text);
@@ -33,16 +50,23 @@ const SettingsField: React.FC<SettingsFieldProps> = ({
   };
 
   return (
-    <View style={styles.settingsFieldContainer}>
-      <Text style={styles.settingsFieldText}>
+    <View style={[styles.settingsFieldContainer, { marginBottom, flexWrap }]}>
+      <Text
+        style={[styles.settingsFieldText, { marginBottom: textMarginBottom }]}
+      >
         {fieldTitle}
         <Text style={styles.textBold}>{fieldValue}</Text>
       </Text>
-      <View style={[{ width: inputBoxWidth }, styles.inputBox]}>
+      <View
+        style={[
+          styles.inputBox,
+          { width: inputBoxWidth, justifyContent: justifyInputBoxContent },
+        ]}
+      >
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, { width: inputWidth }]}
           value={value}
-          keyboardType="numeric"
+          keyboardType={keyboardType}
           onChangeText={changeInputValueHandler}
         />
         <CustomButton onPress={() => onPress(value)}>
@@ -67,7 +91,7 @@ const styles = StyleSheet.create({
   },
   inputBox: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
   },
   textInput: {
@@ -77,6 +101,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     minWidth: 40,
     textAlign: 'center',
+    marginRight: 10,
   },
 });
 

@@ -47,9 +47,24 @@ const gameSlice = createSlice({
     changeMaxScore(state, action: PayloadAction<string>) {
       state.maxGameScore = parseFloat(action.payload);
     },
+    changePlayerName(
+      state,
+      action: PayloadAction<{ newName: string; idx: number }>
+    ) {
+      state.players = state.players.map((player, idx) =>
+        action.payload.idx === idx
+          ? { ...player, name: action.payload.newName.trim() }
+          : player
+      );
+    },
   },
 });
 
-export const { rollDice, startNewGame, holdScore, changeMaxScore } =
-  gameSlice.actions;
+export const {
+  rollDice,
+  startNewGame,
+  holdScore,
+  changeMaxScore,
+  changePlayerName,
+} = gameSlice.actions;
 export default gameSlice.reducer;
